@@ -74,7 +74,7 @@ router.post('/signin', function (req, res) {
 
 router.route('/movie')
 
-    .post(authJwtController.isAuthenticated, function (req, res) {
+    .post(function (req, res) {
             console.log(req.body);
             res = res.status(200);
         if (req.get('Content-Type')) {
