@@ -105,7 +105,7 @@ router.route('/movies')
             res = res.type(req.get('Content-Type'));
         }
         var o = getJSONObjectForMovieRequirement(req);
-        res.json(o);
+        res.send(JSON.stringify({status: res.statusCode, msg: "movie deleted", headers: o.headers, query: req.query, host: o.key }));
     }
     )
     .put(authJwtController.isAuthenticated, function(req, res) {
@@ -115,7 +115,7 @@ router.route('/movies')
             res = res.type(req.get('Content-Type'));
         }
         var o = getJSONObjectForMovieRequirement(req);
-        res.json(o);
+        res.send(JSON.stringify({status: res.statusCode, msg: "movie updated", headers: o.headers, query: req.query, host: o.key }));
     }
     );
 
