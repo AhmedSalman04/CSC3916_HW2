@@ -94,7 +94,7 @@ router.route('/movies')
             res = res.type(req.get('Content-Type'));
         }
         var o = getJSONObjectForMovieRequirement(req);
-        res.send(JSON.stringify({status: res.statusCode, msg: "Get movie", headers: o.headers, query: req.query, host: o.key }));
+        res.send(JSON.stringify({status: res.statusCode, msg: "Get movies", headers: o.headers, query: req.query, host: o.key }));
     }
     )
 
