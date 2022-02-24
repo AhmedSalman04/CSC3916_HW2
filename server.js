@@ -81,7 +81,7 @@ router.route('/movies')
                 console.log("Content-Type: " + req.get('Content-Type'));
                 res = res.type(req.get('Content-Type'));
         }
-            var o = getJSONObject(req);
+            var o = getJSONObjectForMovieRequirement(req);
             res.send(JSON.stringify({status: res.statusCode, msg: "Movie saved", headers: o.headers, query: req.query, host: o.key }));
     }
     )
@@ -93,7 +93,7 @@ router.route('/movies')
             console.log("Content-Type: " + req.get('Content-Type'));
             res = res.type(req.get('Content-Type'));
         }
-        var o = getJSONObject(req);
+        var o = getJSONObjectForMovieRequirement(req);
         res.send(JSON.stringify({status: res.statusCode, msg: "Get movie", headers: o.headers, query: req.query, host: o.key }));
     }
     )
