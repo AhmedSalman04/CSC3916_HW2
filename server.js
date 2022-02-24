@@ -72,7 +72,7 @@ router.post('/signin', function (req, res) {
     }
 });
 
-router.route('/movie')
+router.route('/movies')
 
     .post(function (req, res) {
             console.log(req.body);
