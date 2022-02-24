@@ -72,7 +72,32 @@ router.post('/signin', function (req, res) {
     }
 });
 
-router.route('/testcollection')
+router.route('/movie')
+
+    .post(authJwtController.isAuthenticated, function (req, res) {
+            console.log(req.body);
+            res = res.status(200);
+        if (req.get('Content-Type')) {
+                console.log("Content-Type: " + req.get('Content-Type'));
+                res = res.type(req.get('Content-Type'));
+        }
+            var o = getJSONObject(req);
+            res.send(JSON.stringify({status: res.statusCode, msg: "Movie saved", headers: o.headers, query: req.query, host: o.key }));
+    }
+    )
+
+    .get(authJwtController.isAuthenticated, function (req, res) {
+        console.log(req.body);
+        res = res.status(200);
+        if(req.get('Content-Type')){
+            console.log("Content-Type: " + req.get('Content-Type'));
+            res = res.type(req.get('Content-Type'));
+        }
+        var o = getJSONObject(req);
+        res.send(JSON.stringify({status: res.statusCode, msg: "Get movie", headers: o.headers, query: req.query, host: o.key }));
+    }
+    )
+
     .delete(authController.isAuthenticated, function(req, res) {
         console.log(req.body);
         res = res.status(200);
