@@ -86,7 +86,7 @@ router.route('/movies')
     }
     )
 
-    .get(authJwtController.isAuthenticated, function (req, res) {
+    .get(function (req, res) {
         console.log(req.body);
         res = res.status(200);
         if(req.get('Content-Type')){
